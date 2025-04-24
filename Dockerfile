@@ -14,7 +14,8 @@ COPY . .
 RUN chmod +x ./gradlew
 
 # Build sin tests (puedes sacarlo si querés que los ejecute)
-RUN ./gradlew clean shadowJar -x test --stacktrace --info
+RUN ./gradlew clean build -x check -x test --stacktrace --info
+docker build -t erp-api .
 
 # ----------------------
 # Etapa final: contenedor liviano
