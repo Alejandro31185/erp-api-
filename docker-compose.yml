@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  erp-api:
+    build: .
+    container_name: erp-api-ktor
+    ports:
+      - "8080:8080"
+    environment:
+      - DATABASE_URL=jdbc:postgresql://db:5432/erp
+      - DATABASE_USER=erpuser
+      - DATABASE_PASS=erppass
+    depends_on:
+      - db
+    restart: unless-stopped
+
+  db:
+    image: postgres:15
+    container_name: erp-db
+    restart: always
+    environment:
+      POSTGRES_DB: erp
+      POSTGRES_USER: erpuser
+      POSTGRES_PASSWORD: erppass
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  postgres-data:
