@@ -47,16 +47,12 @@ dependencies {
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
 }
 
-tasks {
-    named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
-        archiveBaseName.set("erp-api-ktor")
-        archiveClassifier.set("")
-        archiveVersion.set("")
-        mergeServiceFiles()
-        manifest {
-            attributes(mapOf("Main-Class" to "io.ktor.server.netty.EngineMain"))
-        }
-    }
+tasks.named<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar>("shadowJar") {
+    archiveBaseName.set("erp-api-ktor")
+    archiveClassifier.set("")
+    archiveVersion.set("")
+}
+    
 
     build {
         dependsOn(shadowJar)
