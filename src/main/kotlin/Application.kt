@@ -39,6 +39,8 @@ fun main() {
         module()
     }.start(wait = true)
 }
+fun main(args: Array<String>): Unit =
+    io.ktor.server.netty.EngineMain.main(args)
 
 fun mesEnPalabra(fecha: String): String {
     val partes = fecha.split("-")
