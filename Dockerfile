@@ -14,7 +14,7 @@ COPY . .
 RUN chmod +x ./gradlew
 
 # Build sin tests (puedes sacarlo si querés que los ejecute)
-RUN ./gradlew clean shadowJar -x test
+RUN ./gradlew clean shadowJar -x test --stacktrace --info
 
 # ----------------------
 # Etapa final: contenedor liviano
