@@ -1,5 +1,5 @@
-val kotlin_version: String by project
-val logback_version: String by project
+val kotlin_version=2.1.20
+val logback_version=1.4.11
 
 plugins {
     application
@@ -24,8 +24,8 @@ repositories {
 
 dependencies {
     // Ktor server
-    implementation("io.ktor:ktor-server-core-jvm:2.3.4")
-    implementation("io.ktor:ktor-server-netty-jvm:2.3.4")
+    implementation("io.ktor:ktor-server-core-jvm:$ktor_version")
+    implementation("io.ktor:ktor-server-netty-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auth:2.3.4")
     implementation("io.ktor:ktor-server-cors:2.3.4")
     implementation("io.ktor:ktor-server-content-negotiation:2.3.4")
